@@ -1,35 +1,46 @@
-$(function() {
-    console.log( "ready!" );
+$(function () {
+    var incomplete = false
 
-$("#submit").on("click", function(event) {
-    event.preventDefault();
+    $("#submit").on("click", function (event) {
+        event.preventDefault();
 
-    // Here we grab the form elements
-    var rankings = {
-      name: $("#name").val().trim(),
-      photo: $("#photo-link").val().trim(),
-      response1: $("#statement-one").val().trim(),
-      response2: $("#statement-two").val().trim(),
-      response3: $("#statement-three").val().trim(),
-      response4: $("#statement-four").val().trim(),
-      response5: $("#statement-five").val().trim(),
-      response6: $("#statement-six").val().trim(),
-      response7: $("#statement-seven").val().trim(),
-      response8: $("#statement-eight").val().trim(),
-      response9: $("#statement-nine").val().trim(),
-      response10: $("#statement-ten").val().trim(),
-    };
 
-    console.log(rankings);
-    console.log("Hi");
+       
+        $(".custom-select").each(function () {
 
-    // This line is the magic. It"s very similar to the standard ajax function we used.
-    // Essentially we give it a URL, we give it the object we want to send, then we have a "callback".
-    // The callback is the response of the server. In our case, we set up code in api-routes that "returns" true or false
-    // depending on if a tables is available or not.
+            if ($(this).val() === "") {
+            $(this).css("border", "1px solid red");
+            incomplete = true;
+            } else if ($(this).val() !== "") {
+            $(this).css("border", "1px solid grey");
+            };
 
-    // $.post("/data/friends", rankings,
-    //   );
+            });
 
-  });
+            if ($("select").val() !== "") {
+                incomplete = false;
+            };
+
+            if (incomplete === false) {
+            var rankings = {
+                name: $("#name").val().trim(),
+                photo: $("#photo-link").val().trim(),
+                response1: $("#statement-one").val().trim(),
+                response2: $("#statement-two").val().trim(),
+                response3: $("#statement-three").val().trim(),
+                response4: $("#statement-four").val().trim(),
+                response5: $("#statement-five").val().trim(),
+                response6: $("#statement-six").val().trim(),
+                response7: $("#statement-seven").val().trim(),
+                response8: $("#statement-eight").val().trim(),
+                response9: $("#statement-nine").val().trim(),
+                response10: $("#statement-ten").val().trim(),
+            };
+        } else {
+            alert("Your responses to these statements are crucial to determining you new best friend forever. Please provide a ranking for each statement.");
+        };
+
+            console.log(rankings);
+    
+    });
 });
