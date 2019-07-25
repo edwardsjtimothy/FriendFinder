@@ -5,15 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
-    <script src="frontendjs/server.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
+    <script src="frontendjs/survey.js"></script>
 
-    <title>Document</title>
+    <title>Survey</title>
 </head>
 
 <body>
@@ -42,7 +39,7 @@
 
                     <h3>Statement 1</h3>
                     <p>You have been heard to remark, "Man, why isn't every day Monday?"</p>
-                    <select class="col-3 form-group custom-select custom-select-sm">
+                    <select id="statement-one" class="col-3 form-group custom-select custom-select-sm">
                         <option selected></option>
                         <option value="1">1 (Strongly Disagree)</option>
                         <option value="2">2</option>
@@ -53,7 +50,7 @@
 
                     <h3>Statement 2</h3>
                     <p>Thanos did nothing wrong.</p>
-                    <select class="col-3 form-group custom-select custom-select-sm">
+                    <select id="statement-two" class="col-3 form-group custom-select custom-select-sm">
                         <option selected></option>
                         <option value="1">1 (Strongly Disagree)</option>
                         <option value="2">2</option>
@@ -64,7 +61,7 @@
 
                     <h3>Statement 3</h3>
                     <p>You like to eat icecream and enjoy a nice pair of slacks.</p>
-                    <select class="col-3 form-group custom-select custom-select-sm">
+                    <select id="statement-three" class="col-3 form-group custom-select custom-select-sm">
                         <option selected></option>
                         <option value="1">1 (Strongly Disagree)</option>
                         <option value="2">2</option>
@@ -75,7 +72,7 @@
 
                     <h3>Statement 4</h3>
                     <p>It seems likely that the pyramids were built by extraterrestrials.</p>
-                    <select class="col-3 form-group custom-select custom-select-sm">
+                    <select id="statement-four" class="col-3 form-group custom-select custom-select-sm">
                         <option selected></option>
                         <option value="1">1 (Strongly Disagree)</option>
                         <option value="2">2</option>
@@ -86,7 +83,7 @@
 
                     <h3>Statement 5</h3>
                     <p>You would rather be attacked by a hundred duck sized horses than by one horse sized duck.</p>
-                    <select class="col-3 form-group custom-select custom-select-sm">
+                    <select id="statement-five" class="col-3 form-group custom-select custom-select-sm">
                         <option selected></option>
                         <option value="1">1 (Strongly Disagree)</option>
                         <option value="2">2</option>
@@ -97,7 +94,7 @@
 
                     <h3>Statement 6</h3>
                     <p>You are an exemplar of emergency preparedness.</p>
-                    <select class="col-3 form-group custom-select custom-select-sm">
+                    <select id="statement-six" class="col-3 form-group custom-select custom-select-sm">
                         <option selected></option>
                         <option value="1">1 (Strongly Disagree)</option>
                         <option value="2">2</option>
@@ -108,7 +105,7 @@
 
                     <h3>Statement 7</h3>
                     <p>You no longer introduce yourself by name but instead by your Enneagram type.</p>
-                    <select class="col-3 form-group custom-select custom-select-sm">
+                    <select id="statement-seven" class="col-3 form-group custom-select custom-select-sm">
                         <option selected></option>
                         <option value="1">1 (Strongly Disagree)</option>
                         <option value="2">2</option>
@@ -119,7 +116,7 @@
 
                     <h3>Statement 8</h3>
                     <p>You never feel as pumped as when listening to "Call me Maybe" by Carly Rae Jepsen.</p>
-                    <select class="col-3 form-group custom-select custom-select-sm">
+                    <select id="statement-eight" class="col-3 form-group custom-select custom-select-sm">
                         <option selected></option>
                         <option value="1">1 (Strongly Disagree)</option>
                         <option value="2">2</option>
@@ -130,7 +127,7 @@
 
                     <h3>Statement 9</h3>
                     <p>Of all the bears in the animal kingdom, black bears are the best bears.</p>
-                    <select class="col-3 form-group custom-select custom-select-sm">
+                    <select id="statement-nine" class="col-3 form-group custom-select custom-select-sm">
                         <option selected></option>
                         <option value="1">1 (Strongly Disagree)</option>
                         <option value="2">2</option>
@@ -141,7 +138,7 @@
 
                     <h3>Statement 10</h3>
                     <p>Rank the severity of your peanut allergy.</p>
-                    <select class="col-3 form-group custom-select custom-select-sm">
+                    <select id="statement-ten" class="col-3 form-group custom-select custom-select-sm">
                         <option selected></option>
                         <option value="1">1 (I am not allergic to peanuts)</option>
                         <option value="2">2</option>
@@ -150,7 +147,7 @@
                         <option value="5">5 (Strongly allergic)</option>
                     </select>
                     <br>
-                    <button class="btn btn-dark" type="submit">Submit</button>
+                    <button id="submit" class="btn btn-dark" type="submit">Submit</button>
                 </form>
                 <br>
 
