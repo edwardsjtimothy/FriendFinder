@@ -1,6 +1,9 @@
-$(function () {
+$(() => {
+    console.log("survey frontend logic");
+    //variable to check if the form is fully filled out
     var incomplete = false
 
+    //click function for the submit button
     $("#submit").on("click", function (event) {
         event.preventDefault();
 
@@ -9,6 +12,7 @@ $(function () {
             photo: $("#photo-link").val().trim(),
             scores: [],
         };
+         
         $(".custom-select").each(function () {
         rankings.scores.push(parseInt($(this).val().trim()));
         });
@@ -26,18 +30,19 @@ $(function () {
         });
 
     
-        if (incomplete === false) {
+        if (incomplete === true) {
             console.log("form complete");
 
-            $.post("/data/friends", rankings, function(data) {
+            $.post("/api/friends", rankings, function(data) {
                 
-                if (data)console.log(friends);
+                if (data)console.log("working", data);
                 
             });
-       
+
         } else {
             alert("Your responses to these statements are crucial to determining you new best friend forever. Please provide a ranking for each statement.");
         };
 
     });
+
 });

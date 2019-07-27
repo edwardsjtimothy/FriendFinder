@@ -8,8 +8,62 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 
     <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
-    <script src="/frontendjs/survey.js"></script>
+    <!-- <script src="../public/frontendjs/survey.js"></script> -->
 
+    <script>
+    $(() => {
+
+    //variable to check if the form is fully filled out
+    var incomplete = false
+
+    //click function for the submit button
+    $("#submit").on("click", function (event) {
+        event.preventDefault();
+
+        //object where user answers to survey questions are stored
+        var rankings = {
+            name: $("#name").val().trim(),
+            photo: $("#photo-link").val().trim(),
+            scores: [],
+        };
+         
+        $(".custom-select").each(function () {
+        rankings.scores.push(parseInt($(this).val().trim()));
+        });
+
+        $(".user-res").each(function () {
+
+            if ($(this).val() === "") {
+                $(this).css("border", "1px solid red");
+                incomplete = true;
+            } else if ($(this).val() !== "") {
+                $(this).css("border", "1px solid grey");
+                incomplete = false;
+            };
+
+        });
+
+    
+        if (incomplete === false) {
+            console.log("form complete");
+
+            $.post("/api/friends", rankings, function(data) {
+                console.log("post");
+                if (data)console.log("working", data);
+                console.log("data");
+                
+            });
+
+        } else {
+            alert("Your responses to these statements are crucial to determining you new best friend forever. Please provide a ranking for each statement.");
+        };
+
+    });
+
+});
+
+    </script>
+    
     <title>Survey</title>
 </head>
 
