@@ -5,9 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 
     <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <!-- <script src="../public/frontendjs/survey.js"></script> -->
 
     <script>
@@ -45,12 +48,14 @@
 
     
         if (incomplete === false) {
-            console.log("form complete");
 
             $.post("/api/friends", rankings, function(data) {
-                console.log("post");
-                if (data)console.log("working", data);
-                console.log("data");
+                if (data) {
+                    $("#bff-modal").modal();
+                    $(".newBff").text(data.name);
+                    $(".newBffImg").attr("src", data.photo);
+                }
+               
                 
             });
 
@@ -68,6 +73,24 @@
 </head>
 
 <body>
+
+        <div class="modal" id="bff-modal" tabindex="-1" role="dialog">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title">Your New BFF! &hearts; </h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      <h1 class="newBff"></h1>
+                      <img class="newBffImg" src="" alt="Photo of your new bff">
+                    </div>
+                  </div>
+                </div>
+              </div>
+
     <div class="container">
         <div class="row">
 
