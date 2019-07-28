@@ -53,6 +53,8 @@
 
             $.post("/api/friends", rankings, function(data) {
                 if (data) {
+
+                    alert("Sorry! Couldn't get the modal to work...Check the console for the information that would have been displayed in the modal!");
                     console.log(data.name);
                     console.log(data.photo);
 
