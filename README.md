@@ -1,1 +1,2 @@
 # FriendFinder
+The purpose of this application is to simulate a matchmaker service e.g. Bubble, Tinder, ect. The application provides the user with a survey to fill out. It then takes their responses and compares them to the responses of other users stored on the server. Finally it displays the user's closest match match. I have been unable to get the display modal to function so for the moment I have the data that would ultimately be displayed by the modal logging to the console.

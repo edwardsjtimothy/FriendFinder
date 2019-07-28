@@ -11,6 +11,8 @@
 
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+    <!-- Had trouble loading js from external file. Put it in script tag for sake of homework. -->
     <!-- <script src="../public/frontendjs/survey.js"></script> -->
 
     <script>
@@ -51,9 +53,14 @@
 
             $.post("/api/friends", rankings, function(data) {
                 if (data) {
-                    $("#bff-modal").modal();
-                    $(".newBff").text(data.name);
-                    $(".newBffImg").attr("src", data.photo);
+                    console.log(data.name);
+                    console.log(data.photo);
+
+                    //modals not working
+
+                    // $("#bff-modal").modal();
+                    // $(".newBff").text(data.name);
+                    // $(".newBffImg").attr("src", data.photo);
                 }
                
                 
