@@ -15,14 +15,37 @@
     <title>Document</title>
 </head>
 
+<script>
+$(() => {
+
+  // click function not working... Won't even console.log after clicking link.
+    $("#friends-list").click(function () {
+        console.log("clicked");
+            $.get("/api/friends", function (req, res) {
+
+                res.json(surveyData);
+            });
+
+        });
+
+
+    });
+
+
+</script>
+
 <body>
         <div class="jumbotron">
                 <h1 class="display-4">Friend Finder</h1>
                 <p class="lead">Need friends? </p>
                 <hr class="my-4">
                 <p>Rank your agreement with the following statements to find your new best friend forever.</p>
-                <a class="btn btn-primary btn-lg" href="/survey" role="button">Take the Survey</a>
-              </div>
+                <a class="btn btn-primary btn-lg" href="/survey" role="button">Take the Survey</a>   
+            </div>
+            <!-- <div id="friends-list"> -->
+                    <a id="friends-list" href="#" target="_blank">API Friends List</a>
+            <!-- </div> -->
+        
 </body>
 
 </html>
